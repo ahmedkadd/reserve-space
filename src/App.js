@@ -1,11 +1,27 @@
-import Header from './components/Header'
+import React from "react";
 
-const App = () => {
-  return (
-    <div className="container">
-      <Header title='Sharespace' />
-    </div>
-  );
+import Scheduler from "./components/Scheduler";
+
+import "./App.css";
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <header>
+          <div id="logo">
+            <span className="icon">date_range</span>
+            <span>
+              react<b>scheduler</b>
+            </span>
+          </div>
+        </header>
+        <main>
+          <Scheduler />
+        </main>
+      </div>
+    );
+  }
 }
 
-export default App
+export default App;
