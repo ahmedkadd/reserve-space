@@ -1,11 +1,11 @@
 import Header from './components/Header'
 
-function App() {
+const App = () => {
   return (
     <div className="container">
-      <Header />
+      <Header title='Sharespace' />
     </div>
   );
 }
 
-export default App;
+export default App
