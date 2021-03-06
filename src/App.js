@@ -10,9 +10,8 @@ class App extends React.Component {
       <div className="App">
         <header>
           <div id="logo">
-            <span className="icon">date_range</span>
             <span>
-              react<b>scheduler</b>
+              share<b>space</b>
             </span>
           </div>
         </header>
