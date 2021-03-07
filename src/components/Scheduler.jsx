@@ -4,7 +4,8 @@ import * as dateFns from "date-fns";
 class Scheduler extends React.Component {
     state = {
         currentDay: new Date(),
-        selectedDate: new Date()
+        selectedDate: new Date(),
+        rooms: ["Office", "Living room", "Dining room"]
     };
 
     renderHeader() {
@@ -45,7 +46,33 @@ class Scheduler extends React.Component {
         return <div className="hours row">{hours}</div>;
     }
 
-    renderCells() {}
+    renderCells() {
+        const rows = [];
+        let rooms = [];
+        let room;
+
+        for (let i = 0; i < this.state.rooms.length; i++) {
+            room = this.state.rooms[i]
+            rooms.push(
+                <div
+                className={`col cell ${this.state.rooms[i]}`}
+                key={this.state.rooms[i]}
+                onClick={() => this.onDateClick()}
+              >
+                <span className="number">{room}</span>
+                <span className="bg">{room}</span>
+              </div>
+            );
+            rows.push(
+                <div className="row" key={room}>
+                  {rooms}
+                </div>
+              );
+              rooms = [];
+        }
+
+        return <div className="body">{rows}</div>;
+    }
 
     onDateClick = day => {}
 
