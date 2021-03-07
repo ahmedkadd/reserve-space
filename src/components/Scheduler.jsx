@@ -60,7 +60,6 @@ class Scheduler extends React.Component {
                 onClick={() => this.onDateClick()}
               >
                 <span className="number">{room}</span>
-                <span className="bg">{room}</span>
               </div>
             );
             rows.push(
