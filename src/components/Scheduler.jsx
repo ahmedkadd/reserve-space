@@ -28,11 +28,28 @@ class Scheduler extends React.Component {
         );
     }
 
-    renderDays() {}
+    renderHours() {
+        const dateFormat = "h";
+        const hours = [];
+        let startHour = dateFns.startOfHour(this.state.currentDay);
+        // TODO: fix this count, currently short an hour
+        let hoursCount = dateFns.differenceInHours(dateFns.endOfDay(this.state.currentDay), startHour);
+    
+        for (let i = 0; i < hoursCount; i++) {
+          hours.push(
+            <div className="col col-center" key={i}>
+              {dateFns.format(dateFns.addHours(startHour, i), dateFormat)}
+            </div>
+          );
+        }
+        return <div className="hours row">{hours}</div>;
+    }
+
     renderCells() {}
 
     onDateClick = day => {}
-    
+
+    // TODO: fix these two functions to reset the hour if not on the current day
     nextDay = () => {
         this.setState({
             currentDay: dateFns.addDays(this.state.currentDay, 1)
@@ -49,7 +66,7 @@ class Scheduler extends React.Component {
         return (
           <div className="scheduler">
             {this.renderHeader()}
-            {this.renderDays()}
+            {this.renderHours()}
             {this.renderCells()}
           </div>
         );
